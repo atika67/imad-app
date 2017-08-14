@@ -67,10 +67,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/:articleName', function (req, res) {
-   res.send(createTemplate(articles[articleName]));
-   var articleName=req.params.articleName;
-   // articleName==article-one
+    // articleName==article-one
    // article[articleName]=={} content object for articleone
+     var articleName=req.params.articleName;
+     res.send(createTemplate(articles[articleName]));
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
