@@ -4,19 +4,37 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articleOne={
-    title:'ARTICLE-ONE ATIKA',
-    heading:'ARTICLE ONE',
-    date:'SEP 5, 2016',
-    content:`<p> This is the first article: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here:
-            </p>
-            <p>
-                content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is h:content for my webapp is here:
-            </p>
-            <p>
-                content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is h:content for my webapp is here:
-            </p>`
-    
+
+
+var articles={
+'article-One':{
+title:'ARTICLE-ONE ATIKA',
+heading:'ARTICLE ONE',
+date:'SEP 5, 2016',
+content:`<p> This is the first article: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here: content for my webapp is here:
+</p>
+<p>
+content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is h:content for my webapp is here:
+</p>
+<p>
+content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is here:content for my webapp is h:content for my webapp is here:
+</p>`
+
+},
+'article-Two':{
+title:'ARTICLE-TWO ATIKA',
+heading:'ARTICLE TWO',
+date:'SEP 10, 2016',
+content:`
+<p> content for my second article </p>`
+},
+'article-Three':{
+title:'ARTICLE-THREE ATIKA',
+heading:'ARTICLE THREE',
+date:'SEP 15, 2016',
+content:`
+<p> content for my third article </p>`  
+}
 };
 function createTemplate (data){
     var title=data.title;
@@ -54,14 +72,11 @@ return htmlTemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one', function (req, res) {
-   res.send(createTemplate(articleOne));
-});
-app.get('/article-two', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName', function (req, res) {
+   res.send(createTemplate(articles[articleName]));
+   var articleName=req.article.params.articleName;
+   // articleName==article-one
+   // article[articleName]=={} content object for articleone
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
