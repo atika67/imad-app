@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 
 var articles={
-'article-One':{
+'article-one':{
 title:'ARTICLE-ONE ATIKA',
 heading:'ARTICLE ONE',
 date:'SEP 5, 2016',
@@ -21,14 +21,14 @@ content for my webapp is here:content for my webapp is here:content for my webap
 </p>`
 
 },
-'article-Two':{
+'article-two':{
 title:'ARTICLE-TWO ATIKA',
 heading:'ARTICLE TWO',
 date:'SEP 10, 2016',
 content:`
 <p> content for my second article </p>`
 },
-'article-Three':{
+'article-three':{
 title:'ARTICLE-THREE ATIKA',
 heading:'ARTICLE THREE',
 date:'SEP 15, 2016',
