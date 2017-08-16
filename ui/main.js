@@ -14,12 +14,27 @@
    // img.style.marginLeft='100px';
 //};
 // counter code
-var counter=0;
 var button=document.getElementById('counter');
 button.onclick=function(){
-    // make a request to the counter end point 
-    //capture the response and store it in the variable and render the variable in correct span
-    counter=counter+1;
+var request=new XMLHttpRequest();
+request.onreadystatechange=function(){
+    if(request.readystate=== XMLHttpRequest.DONE){
+        // take some action
+if(request.atatus===200){
+    var counter=request.responseText;
     var span=document.getElementById('count');
     span.innerHTML=counter.toString();
+}
+}
+//not done yet
+};
+//var counter=0;
+
+//button.onclick=function(){
+    // make a request to the counter end point 
+    //capture the response and store it in the variable and render the variable in correct span
+   // counter=counter+1;
+   request.open('GET','http://atika1498.imad.hasura-app.io/counter',true);
+   request.send(null);
+    
 };
