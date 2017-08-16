@@ -22,4 +22,4 @@ button.onclick=function(){
     counter=counter+1;
     var count=document.getElementById('count');
     span.innerHTML=counter.toString();
-}
+};
