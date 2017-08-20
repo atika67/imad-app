@@ -1,6 +1,4 @@
 var button=document.getElementById('counter');
-button.onclick=function(){
-    // create a request object
     button.onclick=function(){
     // create a request object
     var request=new XMLHttpRequest();
@@ -16,7 +14,6 @@ button.onclick=function(){
             }
             //not done yet
         };
-    };
        request.open('GET','http://atika1498.imad.hasura-app.io/counter',true);
        request.send(null);
  };
