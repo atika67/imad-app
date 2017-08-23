@@ -24,7 +24,7 @@ var submit=document.getElementById('submit_btn');
 submit.onlick=function(){
   var names=['name1','name2','name3','name4'] ;
   var list='';
-  for(i=1;i<name.length;i++){
+  for(i=1;i<names.length;i++){
       list+= '<li>'+names[i]+'</li>';
   }
   var ul=document.getElementById('namelist');
